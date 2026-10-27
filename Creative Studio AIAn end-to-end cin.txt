@@ -1,1 +1,0 @@
-This file was intentionally removed as a duplicate of the repository README. Please refer to README.md for the canonical project description.
