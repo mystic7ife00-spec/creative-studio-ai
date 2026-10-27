@@ -1,0 +1,54 @@
+Creative Studio AIAn end-to-end cinematic AI video and image generation platform. Creative Studio AI integrates a Python FastAPI backend connected to ComfyUI with open-weights models (FLUX.1-schnell for image generation and LTX-Video for cinematic video rendering), paired with a React Native / Expo cross-platform mobile frontend.📁 Repository Structurecreative-studio-ai/
+├── backend/                  # FastAPI Backend & ComfyUI API Client
+│   ├── cinematic_prompt.py   # Prompt processing & enhancement
+│   ├── comfyui_client.py     # ComfyUI WebSocket & API integration
+│   ├── generate_image.py     # FLUX.1 image workflow orchestrator
+│   ├── generate_video.py     # LTX-Video workflow orchestrator
+│   ├── main.py               # FastAPI entry point
+│   ├── Dockerfile            # Container deployment configuration
+│   └── requirements.txt      # Python dependencies
+├── mobile/                   # React Native (Expo) Mobile Client
+│   ├── app/                  # Expo Router file-based navigation
+│   ├── src/                  # Screens, API clients, and TypeScript types
+│   ├── package.json          # Node dependencies
+│   └── app.json              # Expo configuration
+├── docs/                     # Comprehensive Project Documentation
+│   ├── ARCHITECTURE.md       # System design & sequence diagrams
+│   ├── DEPLOYMENT.md         # Self-hosting & server deployment guide
+│   ├── HOW_TO_USE.md         # Workflow and API guide
+│   └── PITCH.md              # Project vision and feature summary
+├── LICENSE                   # MIT Software License
+├── NOTICE                    # AI Model & Third-Party Library Attributions
+└── COMPLIANCE.md             # Licensing, Store & FFmpeg Compliance Guide
+🚀 Quick Start1. Backend SetupPrerequisites: Python 3.10+, FFmpeg, and a running instance of ComfyUI.# Navigate to backend directory
+cd backend
+
+# Copy environment template and update values
+cp .env.example .env
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the API server
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+2. Mobile Client SetupPrerequisites: Node.js 18+ and Expo CLI.# Navigate to mobile directory
+cd mobile
+
+# Install dependencies
+npm install
+
+# Start Expo development server
+npx expo start
+🎨 Architecture & Workflow+-------------------+       HTTP / REST       +-----------------------+
+|  Mobile Client    | <---------------------> |   FastAPI Backend     |
+| (React Native)    |                         | (generate_video.py)   |
++-------------------+                         +-----------+-----------+
+                                                          |
+                                            WebSocket / API Calls
+                                                          |
+                                                          v
+                                              +-----------------------+
+                                              |    ComfyUI Engine     |
+                                              |  FLUX.1 & LTX-Video   |
+                                              +-----------------------+
+Prompt Crafting: User enters a scene description in the mobile app.Prompt Optimization: cinematic_prompt.py formats the prompt for optimal cinematic rendering.Inference: FastAPI sends workflows to ComfyUI for FLUX.1-schnell image generation or LTX-Video generation.Post-Processing: FFmpeg stitches or encodes clips into lightweight MP4/H.264 formats.Delivery: The mobile app streams or downloads the rendered video.🛡️ License & ComplianceSoftware Code: Licensed under the MIT License.AI Model Licenses:FLUX.1-schnell: Apache 2.0 / Black Forest Labs Open Weights.LTX-Video: Lightricks Community Open-Weights License.FFmpeg: Uses FFmpeg under LGPL v2.1+.Refer to NOTICE and COMPLIANCE.md for full attribution details.
