@@ -1,0 +1,28 @@
+Third-Party Notices and AI Model Attributions
+=============================================
+
+This application utilizes open-source libraries and generative AI models. 
+Users and distributors must comply with their respective licensing terms.
+
+1. AI Model Licenses & Attributions
+------------------------------------
+* FLUX.1-schnell
+  - Provider: Black Forest Labs
+  - License: Apache 2.0 (or underlying non-commercial / open weights terms depending on specific host implementation)
+  - Details: Verify commercial usage rights if hosting weights directly or accessing via specific API providers.
+
+* LTX-Video
+  - Provider: Lightricks
+  - License: Open-weights community license / specific restrictive commercial terms.
+  - Details: Usage of LTX-Video must adhere to Lightricks' terms regarding generated media and commercial distribution.
+
+2. Media Processing & Software Libraries
+----------------------------------------
+* FFmpeg
+  - License: LGPL v2.1+ / GPL v2+ (depending on build configuration)
+  - Website: https://ffmpeg.org
+  - Notice: If distributed as binary or bundled executable, dynamic linking must be maintained under LGPL, or source code for FFmpeg modifications must be made available.
+
+3. General Dependencies
+-----------------------
+All standard package dependencies (npm, pip, or similar) are property of their respective authors and governed by their respective licenses (MIT, Apache-2.0, BSD, etc.).
